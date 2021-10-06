@@ -1,0 +1,24 @@
+{
+  "name": "new-wesite",
+  "version": "1.0.0",
+  "description": "this is a very simple web page for movies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SayeedMahdi/Movie-shop.git"
+  },
+  "author": "Sayeed Mahdi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SayeedMahdi/Movie-shop/issues"
+  },
+  "homepage": "https://github.com/SayeedMahdi/Movie-shop#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "jsoon": "^0.1.0"
+  }
+}
