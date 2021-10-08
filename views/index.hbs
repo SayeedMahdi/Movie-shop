@@ -8,23 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Mahdi movies </title>
     <!-- favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <!-- fontawesome icon  -->
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/public/css/fontawesome.min.css" >
     <!-- flaticon css -->
-    <link rel="stylesheet" href="assets/fonts/flaticon.css">
+    <link rel="stylesheet" href="/public/fonts/flaticon.css">
     <!-- animate.css -->
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="/public/css/animate.css">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/public/css/owl.carousel.min.css">
     <!-- magnific popup -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/public/css/magnific-popup.css">
     <!-- stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
     <!-- responsive -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="/public/css/responsive.css">
 </head>
 
     <body>
@@ -32,7 +32,7 @@
         <!-- preloader begin -->
         <div class="preloader">
             <div class="loader">
-                <hr>
+                <hr >
                 <hr>
             </div>
         </div>
@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-6 d-xl-block d-lg-block d-flex align-items-center">
                                 <div class="logo">
-                                    <img src="assets/img/logo.png" alt="" height="100"></a>
+                                    <img src="/public/img/logo.png" alt="" height="100"></a>
                                 </div>
                             </div>
                             <div class="d-xl-none d-lg-none d-block col-6">
@@ -63,16 +63,16 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
+                                            <a class="nav-link active" href="index.hbs">Home<span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="event.html">Movies</a>
+                                            <a class="nav-link" href="Movies.hbs">Movies</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="gallery.html">Genres</a>
+                                            <a class="nav-link" href="Genres.hbs">Genres</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="top-dj.html">Customer</a>
+                                            <a class="nav-link" href="Customer.hbs">Customer</a>
                                         </li>
                               
                                     </ul>
@@ -102,7 +102,7 @@
                             <div class="row">
                                 <div class="col-xl-4 col-lg-4 col-md-6 d-xl-block d-lg-block d-md-none">
                                     <div class="part-img">
-                                        <img src="assets/img/banner-bottom-img.jpg" alt="">
+                                        <img src="/public/img/banner-bottom-img.jpg" alt="">
                                         <p>Best Movies</p>
                                     </div>
                                 </div>
@@ -176,7 +176,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-8">
                         <div class="contact-form">
-                            <form>
+                            <form action="/api/movies">
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6">
                                         <input type="text" placeholder="title">
@@ -203,7 +203,7 @@
                                         <span class="textarea"></span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6">
-                                        <button>Save Movie</button>
+                                      <button> save movie</button>
                                     </div>
                                 </div>
                             </form>
@@ -220,7 +220,7 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-4 d-xl-flex d-lg-flex align-items-center">
                         <div class="logo">
-                            <img src="assets/img/logo.png" alt="" height="100"></a>
+                            <img src="/public/img/logo.png" alt="" height="100"></a>
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-8">
@@ -229,13 +229,13 @@
                                 <ul class="navbar-nav">
                                  
                                     <li class="nav-item">
-                                        <a class="nav-link" href="event.html">Movie</a>
+                                        <a class="nav-link" href="Movies.hbs">Movie</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="gallery.html">Genres</a>
+                                        <a class="nav-link" href="Genres.hbs">Genres</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="top-dj.html">Customers</a>
+                                        <a class="nav-link" href="Customer.hbs">Customers</a>
                                     </li>
                                   
                                 </ul>
@@ -248,19 +248,19 @@
         <!-- footer end -->
      
         <!-- jquery -->
-        <script src="assets/js/jquery.js"></script>
+        <script src="/public/js/jquery.js"></script>
         <!-- bootstrap -->
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="/public/js/bootstrap.min.js"></script>
         <!-- owl carousel -->
-        <script src="assets/js/owl.carousel.js"></script>
+        <script src="/public/js/owl.carousel.js"></script>
         <!-- magnific popup -->
-        <script src="assets/js/jquery.magnific-popup.js"></script>
+        <script src="/public/js/jquery.magnific-popup.js"></script>
         <!-- way poin js-->
-        <script src="assets/js/waypoints.min.js"></script>
+        <script src="/public/js/waypoints.min.js"></script>
         <!-- wow js-->
-        <script src="assets/js/wow.min.js"></script>
+        <script src="/public/js/wow.min.js"></script>
         <!-- main -->
-        <script src="assets/js/main.js"></script>
+        <script src="/public/js/main.js"></script>
     </body>
 
 </html>

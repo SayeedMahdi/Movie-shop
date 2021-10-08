@@ -4,7 +4,8 @@
   "description": "this is a very simple web page for movies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "app.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,13 @@
   },
   "homepage": "https://github.com/SayeedMahdi/Movie-shop#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "hbs": "^4.1.2",
     "helmet": "^4.6.0",
-    "jsoon": "^0.1.0"
+    "jsoon": "^0.1.0",
+    "mysql": "^2.18.1",
+    "pkg": "^5.3.3"
   }
 }

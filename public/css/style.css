@@ -303,7 +303,7 @@ ul {
     breadcrump
 ==========================================*/
 .breadcrump {
-  background: url("../img/breadcrump-bg.jpg") center center no-repeat;
+  background: url("../img/banner-bottom-img.jpg") center center no-repeat;
   background-size: cover;
   position: relative;
   z-index: 2; }
@@ -332,7 +332,7 @@ ul {
     banner
 ==========================================*/
 .banner {
-  background: url("../img/banner.jpg") center center no-repeat;
+  background: url("../img/firspage.jpg") center center no-repeat;
   background-size: cover;
   position: relative;
   z-index: 2; }
