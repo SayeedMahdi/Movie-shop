@@ -10,21 +10,21 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- fontawesome icon  -->
-    <link rel="stylesheet" href="/public/css/fontawesome.min.css" >
+    <link rel="stylesheet" href="/css/fontawesome.min.css" >
     <!-- flaticon css -->
-    <link rel="stylesheet" href="/public/fonts/flaticon.css">
+    <link rel="stylesheet" href="/fonts/flaticon.css">
     <!-- animate.css -->
-    <link rel="stylesheet" href="/public/css/animate.css">
+    <link rel="stylesheet" href="/css/animate.css">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="/public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <!-- magnific popup -->
-    <link rel="stylesheet" href="/public/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
     <!-- stylesheet -->
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- responsive -->
-    <link rel="stylesheet" href="/public/css/responsive.css">
+    <link rel="stylesheet" href="/css/responsive.css">
 </head>
 
     <body>
@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-6 d-xl-block d-lg-block d-flex align-items-center">
                                 <div class="logo">
-                                    <img src="/public/img/logo.png" alt="" height="100"></a>
+                                    <img src="/img/logo.png" alt="" height="100"></a>
                                 </div>
                             </div>
                             <div class="d-xl-none d-lg-none d-block col-6">
@@ -72,7 +72,7 @@
                                             <a class="nav-link" href="Genres.hbs">Genres</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="Customer.hbs">Customer</a>
+                                            <a class="nav-link" href="Customer.hbs">Customers</a>
                                         </li>
                               
                                     </ul>
@@ -102,7 +102,7 @@
                             <div class="row">
                                 <div class="col-xl-4 col-lg-4 col-md-6 d-xl-block d-lg-block d-md-none">
                                     <div class="part-img">
-                                        <img src="/public/img/banner-bottom-img.jpg" alt="">
+                                        <img src="/img/banner-bottom-img.jpg" alt="">
                                         <p>Best Movies</p>
                                     </div>
                                 </div>
@@ -176,30 +176,30 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-8">
                         <div class="contact-form">
-                            <form action="/api/movies">
+                            <form action="/auth/newmovie" method="POST">
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6">
-                                        <input type="text" placeholder="title">
+                                        <input type="text" placeholder="title" name:"title">
                                         <span></span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6">
-                                        <input type="text" placeholder="Enter the Genre Id">
+                                        <input type="text" placeholder="Enter the Genre Id" name:"genreid">
                                         <span></span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6">
-                                        <input type="number" placeholder="daily rate" max="10" min="0">
+                                        <input type="number" placeholder="daily rate" max="10" min="0" name:"daily rate">
                                         <span></span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6">
-                                        <input type="text" placeholder="add src pic for Movie" >
+                                        <input type="text" placeholder="add src pic for Movie" name:"src:">
                                         <span></span>
                                     </div>
                                     <div class="col-xl-12 col-lg-12">
-                                        <input type="number" placeholder="Number in Stuck" min="0">
+                                        <input type="number" placeholder="Number in Stuck" min="0" name:"number instock">
                                         <span></span>
                                     </div>
                                     <div class="col-xl-12 col-lg-12">
-                                        <textarea placeholder="Write a message"></textarea>
+                                        <textarea placeholder="Write a message" name:"message"></textarea>
                                         <span class="textarea"></span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6">
@@ -220,7 +220,7 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-4 d-xl-flex d-lg-flex align-items-center">
                         <div class="logo">
-                            <img src="/public/img/logo.png" alt="" height="100"></a>
+                            <img src="/img/logo.png" alt="" height="100"></a>
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-8">
@@ -248,19 +248,19 @@
         <!-- footer end -->
      
         <!-- jquery -->
-        <script src="/public/js/jquery.js"></script>
+        <script src="/js/jquery.js"></script>
         <!-- bootstrap -->
-        <script src="/public/js/bootstrap.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
         <!-- owl carousel -->
-        <script src="/public/js/owl.carousel.js"></script>
+        <script src="/js/owl.carousel.js"></script>
         <!-- magnific popup -->
-        <script src="/public/js/jquery.magnific-popup.js"></script>
+        <script src="/js/jquery.magnific-popup.js"></script>
         <!-- way poin js-->
-        <script src="/public/js/waypoints.min.js"></script>
+        <script src="/js/waypoints.min.js"></script>
         <!-- wow js-->
-        <script src="/public/js/wow.min.js"></script>
+        <script src="/js/wow.min.js"></script>
         <!-- main -->
-        <script src="/public/js/main.js"></script>
+        <script src="/js/main.js"></script>
     </body>
 
 </html>
