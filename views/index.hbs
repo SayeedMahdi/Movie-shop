@@ -176,34 +176,45 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-8">
                         <div class="contact-form">
-                            <form action="/auth/newmovie" method="POST">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6">
-                                        <input type="text" placeholder="title" name:"title">
+                            <form action="/movie/newmovie" method="POST">
+                                <div class="row " >
+                                    <div class="col-xl-6 col-lg-6 form-group">
+                                        <input type="text" placeholder="title" name="title" class="form-control " id="title">
                                         <span></span>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6">
-                                        <input type="text" placeholder="Enter the Genre Id" name:"genreid">
+                                    <div class="col-xl-6 col-lg-6 form-group">
+                                        <input type="text" placeholder="Enter the Genre Id" name="genre_id"  id="genreid" class="form-control ">
                                         <span></span>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6">
-                                        <input type="number" placeholder="daily rate" max="10" min="0" name:"daily rate">
+                                      <div class="col-xl-6 col-lg-6 form-group">
+                                        <input type="text" placeholder="Enter the price" name="price"  id="price" class="form-control ">
                                         <span></span>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6">
-                                        <input type="text" placeholder="add src pic for Movie" name:"src:">
+                                    <div class="col-xl-6 col-lg-6 form-group">
+                                        <input type="number" placeholder="daily rate" max="10" min="0" id="dailyRate" name="dailyRate" class="form-control ">
                                         <span></span>
                                     </div>
-                                    <div class="col-xl-12 col-lg-12">
-                                        <input type="number" placeholder="Number in Stuck" min="0" name:"number instock">
+                                    <div class="col-xl-6 col-lg-6  form-group" >
+                                        <input type="text" placeholder="add src pic for Movie" id="src" name="photo" class="form-control ">
                                         <span></span>
                                     </div>
-                                    <div class="col-xl-12 col-lg-12">
-                                        <textarea placeholder="Write a message" name:"message"></textarea>
+                                    <div class="col-xl-6 col-lg-6 form-group">
+                                        <input type="number" placeholder="Number in Stuck" min="0" id="stuck" name="numberInStock" class="form-control ">
+                                        <span></span>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 form-group">
+                                        <textarea placeholder="Write a message" id="message" name="message" class="form-control "></textarea>
                                         <span class="textarea"></span>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6">
-                                      <button> save movie</button>
+                                    <div class="col-xl-6 col-lg-6 form-group">
+                                        {{#if message}}
+                                                <div >
+                                                    <h4 class="alert alert-danger">
+                                                        {{message}}
+                                                    </h4>
+                                                </div>
+                                        {{/if}}
+                                      <button type="submit"> save movie</button>
                                     </div>
                                 </div>
                             </form>

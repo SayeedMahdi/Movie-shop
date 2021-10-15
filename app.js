@@ -1,22 +1,18 @@
 const express =require("express");
-const mysql=require("mysql");
-const dotenv=require("dotenv");
+const app=express();
+const db=require("./database");
 const path=require("path");
+
+app.use(express.static(path.join(__dirname, './public')));
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
+
+console.log("did true");
+
 const pages=require("./routes/routes");
 
-dotenv.config({path: "./databaseconection.env"});
-const app=express();
-
-app.use("/auth",require("./routes/auth"));
-
-
-
-const db= mysql.createConnection({
-    host:process.env.host,
-    user:process.env.Database_user,
-    password:process.env.Database_password,
-    database:process.env.Database_name
-});
+app.use("/movie",require("./routes/movie"));
 
 db.connect((error)=>{
     if(error ) console.log(error.message);
@@ -24,9 +20,6 @@ db.connect((error)=>{
 });
 
 
-app.use(express.static(path.join(__dirname, './public')));
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
 
 app.set("view engine","hbs");
 app.use("/api",pages);
