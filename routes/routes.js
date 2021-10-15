@@ -4,10 +4,10 @@ const routes=express.Router();
 
 routes.get("/home",(req,res)=>{
     
-    res.render("index.hbs")
+    res.render("index")
 });
 routes.get("/movies",(req,res)=>{
-    res.render("Movies")
+    res.render("movies")
 });
 
 routes.get("/genres",(req,res)=>{
