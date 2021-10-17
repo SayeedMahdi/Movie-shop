@@ -1378,12 +1378,23 @@ ul {
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: url("../img/testimonial-1.jpg") center center no-repeat;
+      background: url("../img/mahdi.jpg") center center no-repeat;
       background-size: cover;
       border-radius: 5px; }
-      .testimonial .single-testimonial .part-img.two {
-        background: url("../img/testimonial-2.jpg") center center no-repeat;
-        background-size: cover; }
+      .testimonial .single-testimonial .part-img-two {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: url("../img/hamid.jpg") right center no-repeat;
+        background-size: cover;
+        border-radius: 5px; }
+        .testimonial .single-testimonial .part-img-tree {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background: url("../img/rohullah.jpg") center center no-repeat;
+          background-size: cover;
+          border-radius: 5px; }
     .testimonial .single-testimonial .part-text {
       padding: 30px; }
       .testimonial .single-testimonial .part-text .bio {

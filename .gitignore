@@ -1,4 +1,5 @@
 /videos
-/assets/img
-/assets/fonts
-/node_modules
+assets/img
+assets/fonts
+node_modules
+/databaseconection.env

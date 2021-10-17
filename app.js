@@ -1,6 +1,6 @@
 const express =require("express");
 const app=express();
-const db=require("./database");
+const pool=require("./database");
 const path=require("path");
 
 app.use(express.static(path.join(__dirname, './public')));
@@ -8,15 +8,15 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 
-console.log("did true");
+
 
 const pages=require("./routes/routes");
 
 app.use("/movie",require("./routes/movie"));
 
-db.connect((error)=>{
-    if(error ) console.log(error.message);
-    else console.log("connected successfuly.");
+pool.getConnection((error,connection)=>{
+    if(error ) console.log("this is not connected", error.message);
+     else  console.log("connected successfuly with id:",connection.threadId);
 });
 
 
