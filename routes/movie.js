@@ -19,7 +19,7 @@ route.post("/newmovie", async (req, res) => {
             return res.render("index", {
                 message: "the title already exist in database"
             })
-        }
+        };
         pool.query("INSERT INTO movies SET ?", { Title: title, genre_id: genre_id, Price: price, DailyRate: dailyRate, NumberInStock: numberInStock, photo: photo, message: message,YouTube_link:video }, (error, result) => {
 
             if (result) {
