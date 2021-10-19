@@ -76,9 +76,10 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="customers">Customers</a>
                                     </li>
-                                    <form class="form-inline my-3 my-lg-1">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Search for movie"
-                                            aria-label="Search">
+
+                                    <form class="form-inline my-3 my-lg-1" action="/api/movie" method="POST">
+                                        <input class="form-control mr-sm-2" type="search" name="search"
+                                            placeholder="Search for movie" aria-label="Search">
                                         <button class="btn btn-outline-success my-3 my-sm-2"
                                             type="submit">Search</button>
                                     </form>
@@ -109,34 +110,42 @@
     <!-- breadcrump end -->
 
     <!-- single Movies begin -->
-    <div class="single-Movies">
+    <br>
+    {{#each result}}
+
+    <div class="single-Movies" style="background-color: #ccc;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
-                    <div class="part-img">
-                        <img src="/img/single-event.jpg" alt="">
+                    <div class="part-vieo">
+
+                        <iframe width="560" height="315" src="{{this.YouTube_link}}" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 d-xl-flex d-lg-flex d-block align-items-center">
                     <div class="part-text">
                         <h3>About Movie</h3>
-                        <P>Garcia, a versatil web designer. Phasellus vehicula the justo eg diam
-                            in posuere phasellus eget sem just the consequat gestass facilisis
-                            eleifend tempor metus. Phasellus vehicula justo egeteddiames
-                            posuere sollicitu tincidunt nulla. A versatil web designer. Phasellus vehicula the justo eg
-                            diam
-                            in posuere phasellus eget sem just the consequat gestass facilisis
-                            eleifend tempor metus.</P>
+                        <P>{{this.message}}</P>
                         <div class="meta-info">
-                            <span class="eventor-name">rate</span>
-                            <span class="location">price</span>
+                            <span class="eventor-name">Daily Rate:{{this.DailyRate}}</span>
+                            <br>
+                            <span class="location">Price: {{this.Price}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br><br>
+     {{/each}}
+
+
     <!-- single event end -->
+
+
 
     <!-- ticket price begin -->
     <div class="ticket-price">
@@ -144,197 +153,203 @@
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-8">
                     <div class="section-title text-center">
-                        <h2>Movies Tickets</h2>
+                        <h2>Event Tickets</h2>
                     </div>
                 </div>
             </div>
+         
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-sm-6">
+                  {{#each result}}
+                <div class="col-xl-3 col-lg-3 col-sm-6 ">
+                    
                     <div class="single-ticket-price">
                         <div class="part-feature">
-
-
-                            <span class="price">49</span>
+                            <span class="price">{{this.Price}}</span>
                             <h3>Basic Pass</h3>
                             <ul>
-                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Regular
-                                        Seating</span></li>
-                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Confortable
-                                        Seat</span></li>
-                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Coffee
-                                        Break</span></li>
-                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">One
-                                        Workshop</span></li>
+                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Title:{{this.Title}}
+                                    </span></li>
+                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Daily Rate:{{this.DailyRate}}
+                                        </span></li>
+                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Number in Stuck:{{this.NumberInStock}}
+                                        </span></li>
+                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">ID:{{this.id}}
+                                        </span></li>
                                 <li><span class="icon"><i class="fas fa-check"></i></span><span
-                                        class="text">Certificate</span></li>
+                                        class="text">Type of Genre:</span></li>
                             </ul>
                         </div>
                         <div class="part-button">
                             <a href="#">Buy Ticket</a>
                         </div>
+                    </div>
+                    
+                </div>
+                 {{/each}}
+                </div>
+            </div>
+           
+        </div>
+    </div>
 
+    <!-- ticket price end -->
+
+
+    <!-- testimonial begin -->
+    <div class="testimonial event-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-8">
+                    <div class="section-title text-center">
+                        <h2>Team Members</h2>
                     </div>
                 </div>
             </div>
-            <!-- ticket price end -->
-
-            <!-- testimonial begin -->
-            <div class="testimonial event-page">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-8 col-lg-8">
-                            <div class="section-title text-center">
-                                <h2>Team Members</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="testimonial-slider">
-                                <div class="single-testimonial">
-                                    <div class="row no-gutters">
-                                        <div class="col-xl-4 col-lg-4 col-sm-4 col-md-12 col-12">
-                                            <div class="part-img"></div>
-                                        </div>
-                                        <div class="col-xl-8 col-lg-8 col-sm-8 col-md-12 col-12">
-                                            <div class="part-text">
-                                                <div class="bio">
-                                                    <span class="name">Sayeed Mahdi Mousavi</span>
-                                                    <span class="position">Tutial tech Node Js developer</span>
-                                                </div>
-                                                <div class="social">
-                                                    <a href="https://www.facebook.com/sayeedmahdi.mousavi"><i
-                                                            class="fab fa-facebook-f"></i></a>
-                                                    <a href="http://t.me/Sayeedmahdi"><i
-                                                            class="fab fa-telegram"></i></a>
-                                                    <a
-                                                        href="https://www.linkedin.com/in/sayeed-mahdi-mousavi-7b4184200/"><i
-                                                            class="fab fa-linkedin"></i></a>
-                                                    <a href="https:/wa.me/780508775"><i class="fab fa-whatsapp"></i></a>
-                                                </div>
-                                                <div class="text">
-                                                    <p>Soft engineer and web developer work in Tutial tech.co and my
-                                                        best
-                                                        ability is in web design and backend with node Js.
-                                                        I intrust to see all my partners who work in computers field and
-                                                        industry.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="testimonial-slider">
+                        <div class="single-testimonial">
+                            <div class="row no-gutters">
+                                <div class="col-xl-4 col-lg-4 col-sm-4 col-md-12 col-12">
+                                    <div class="part-img"></div>
                                 </div>
-                                <div class="single-testimonial">
-                                    <div class="row no-gutters">
-                                        <div class="col-xl-4 col-lg-4 col-sm-4 col-md-12 col-12">
-                                            <div class="part-img-two"></div>
+                                <div class="col-xl-8 col-lg-8 col-sm-8 col-md-12 col-12">
+                                    <div class="part-text">
+                                        <div class="bio">
+                                            <span class="name">Sayeed Mahdi Mousavi</span>
+                                            <span class="position">Tutial tech Node Js developer</span>
                                         </div>
-                                        <div class="col-xl-8 col-lg-8 col-sm-8 col-md-12 col-12">
-                                            <div class="part-text">
-                                                <div class="bio">
-                                                    <span class="name">Hamid Housiny</span>
-                                                    <span class="position">Tutial tech React native developer</span>
-                                                </div>
-                                                <div class="social">
-                                                    <a href="https://www.facebook.com/profile.php?id=100006321225377"><i
-                                                            class="fab fa-facebook-f"></i></a>
-                                                    <a href="@hamidtech"><i class="fab fa-telegram"></i></a>
-                                                    <a href="Hamid hussiny"><i class="fab fa-linkedin"></i></a>
-                                                    <a href="0093787353033"><i class="fab fa-whatsapp"></i></a>
-                                                </div>
-                                                <div class="text">
-                                                    <p>Soft engineer and mobile app developer work in Tutial tech.co and
-                                                        my
-                                                        best
-                                                        ability is in mobile design and backend with react native.
-                                                        I intrust to see all my partners who work in computers field and
-                                                        industry.</p>
-                                                </div>
-                                            </div>
+                                        <div class="social">
+                                            <a href="https://www.facebook.com/sayeedmahdi.mousavi"><i
+                                                    class="fab fa-facebook-f"></i></a>
+                                            <a href="http://t.me/Sayeedmahdi"><i class="fab fa-telegram"></i></a>
+                                            <a href="https://www.linkedin.com/in/sayeed-mahdi-mousavi-7b4184200/"><i
+                                                    class="fab fa-linkedin"></i></a>
+                                            <a href="https:/wa.me/780508775"><i class="fab fa-whatsapp"></i></a>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="single-testimonial">
-                                    <div class="row no-gutters">
-                                        <div class="col-xl-4 col-lg-4 col-sm-4 col-md-12 col-12">
-                                            <div class="part-img-tree"></div>
-                                        </div>
-                                        <div class="col-xl-8 col-lg-8 col-sm-8 col-md-12 col-12">
-                                            <div class="part-text">
-                                                <div class="bio">
-                                                    <span class="name">Rohullah Nabavi</span>
-                                                    <span class="position">Tutial tech Mobile app developer</span>
-                                                </div>
-                                                <div class="social">
-                                                    <a href="Rohollah Nabavi"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="@Rohullah"><i class="fab fa-telegram"></i></a>
-                                                    <a href="Rohullah"><i class="fab fa-linkedin"></i></a>
-                                                    <a href="00937856788"><i class="fab fa-whatsapp"></i></a>
-                                                </div>
-                                                <div class="text">
-                                                    <p>Soft engineer and web developer work in Tutial tech.co and my
-                                                        best
-                                                        ability is in web design and backend with node Js.
-                                                        I intrust to see all my partners who work in computers field and
-                                                        industry.</p>
-                                                </div>
-                                            </div>
+                                        <div class="text">
+                                            <p>Soft engineer and web developer work in Tutial tech.co and my
+                                                best
+                                                ability is in web design and backend with node Js.
+                                                I intrust to see all my partners who work in computers field and
+                                                industry.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="single-testimonial">
+                            <div class="row no-gutters">
+                                <div class="col-xl-4 col-lg-4 col-sm-4 col-md-12 col-12">
+                                    <div class="part-img two"></div>
+                                </div>
+                                <div class="col-xl-8 col-lg-8 col-sm-8 col-md-12 col-12">
+                                    <div class="part-text">
+                                        <div class="bio">
+                                            <span class="name">Hamid Housiny</span>
+                                            <span class="position">Tutial tech React native developer</span>
+                                        </div>
+                                        <div class="social">
+                                            <a href="https://www.facebook.com/profile.php?id=100006321225377"><i
+                                                    class="fab fa-facebook-f"></i></a>
+                                            <a href="@hamidtech"><i class="fab fa-telegram"></i></a>
+                                            <a href="Hamid hussiny"><i class="fab fa-linkedin"></i></a>
+                                            <a href="0093787353033"><i class="fab fa-whatsapp"></i></a>
+                                        </div>
+                                        <div class="text">
+                                            <p>Soft engineer and mobile app developer work in Tutial tech.co and
+                                                my
+                                                best
+                                                ability is in mobile design and backend with react native.
+                                                I intrust to see all my partners who work in computers field and
+                                                industry.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-testimonial">
+                            <div class="row no-gutters">
+                                <div class="col-xl-4 col-lg-4 col-sm-4 col-md-12 col-12">
+                                    <div class="part-img three"></div>
+                                </div>
+                                <div class="col-xl-8 col-lg-8 col-sm-8 col-md-12 col-12">
+                                    <div class="part-text">
+                                        <div class="bio">
+                                            <span class="name">Rohullah Nabavi</span>
+                                            <span class="position">Tutial tech Mobile app developer</span>
+                                        </div>
+                                        <div class="social">
+                                            <a href="Rohollah Nabavi"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="@Rohullah"><i class="fab fa-telegram"></i></a>
+                                            <a href="Rohullah"><i class="fab fa-linkedin"></i></a>
+                                            <a href="00937856788"><i class="fab fa-whatsapp"></i></a>
+                                        </div>
+                                        <div class="text">
+                                            <p>Soft engineer and web developer work in Tutial tech.co and my
+                                                best
+                                                ability is in web design and backend with node Js.
+                                                I intrust to see all my partners who work in computers field and
+                                                industry.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- testimonial end -->
+        </div>
+    </div>
+    <!-- testimonial end -->
 
-            <!-- footer begin -->
-            <div class="footer mb-0">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-5 col-lg-4 d-xl-flex d-lg-flex align-items-center">
-                            <div class="logo">
-                                <img src="/img/logo.png" alt="" height="100"></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-lg-8">
-                            <div class="footer-menu">
-                                <nav class="navbar navbar-expand-lg">
-                                    <ul class="navbar-nav">
+    <!-- footer begin -->
+    <div class="footer mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-4 d-xl-flex d-lg-flex align-items-center">
+                    <div class="logo">
+                        <img src="/img/logo.png" alt="" height="100"></a>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-8">
+                    <div class="footer-menu">
+                        <nav class="navbar navbar-expand-lg">
+                            <ul class="navbar-nav">
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Movies.hbs">Movie</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Genres.hbs">Genres</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="Customer.hbs">Customers</a>
-                                        </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Movies.hbs">Movie</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Genres.hbs">Genres</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Customer.hbs">Customers</a>
+                                </li>
 
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
-            <!-- footer end -->
+        </div>
+    </div>
+    <!-- footer end -->
 
-            <!-- jquery -->
-            <script src="/js/jquery.js"></script>
-            <!-- bootstrap -->
-            <script src="/js/bootstrap.min.js"></script>
-            <!-- owl carousel -->
-            <script src="/js/owl.carousel.js"></script>
-            <!-- magnific popup -->
-            <script src="/js/jquery.magnific-popup.js"></script>
-            <!-- way poin js-->
-            <script src="/js/waypoints.min.js"></script>
-            <!-- wow js-->
-            <script src="/js/wow.min.js"></script>
-            <!-- main -->
-            <script src="/js/main.js"></script>
+    <!-- jquery -->
+    <script src="/js/jquery.js"></script>
+    <!-- bootstrap -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- owl carousel -->
+    <script src="/js/owl.carousel.js"></script>
+    <!-- magnific popup -->
+    <script src="/js/jquery.magnific-popup.js"></script>
+    <!-- way poin js-->
+    <script src="/js/waypoints.min.js"></script>
+    <!-- wow js-->
+    <script src="/js/wow.min.js"></script>
+    <!-- main -->
+    <script src="/js/main.js"></script>
 </body>
 
 

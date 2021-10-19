@@ -1,13 +1,10 @@
 const pool = require("../database");
 const url=require("valid-url");
-// pool.getConnection((error,connection)=>{
-//     if(error ) console.log(error.message);
-//     else console.log("connected successfuly with id:",connection.threadId);
-// });
-
-
 const express = require("express");
 const route = express.Router();
+
+
+
 route.post("/newmovie", async (req, res) => {
     const { title, genre_id, dailyRate, photo, numberInStock, message, price,video } = req.body;
     const url_va=url.isUri(video, photo);
@@ -40,6 +37,16 @@ route.post("/newmovie", async (req, res) => {
     });
 });
 
+route.post("/search", async (req, res) => {
+    const { search } = req.body;
+   
+    
+    pool.query("SELECT * FROM movies WHERE Title like ?", ['%'+search+'%'], (error, result) => {
+        if (error) return console.log(error.message);
+        res.render("movies", {result});
+       
+        });
+});
 
 
 // res.send("addded ");

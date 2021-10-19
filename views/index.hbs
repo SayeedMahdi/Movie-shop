@@ -66,7 +66,7 @@
                                             <a class="nav-link active" href="home">Home<span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="movies">Movies</a>
+                                            <a class="nav-link" href="movie">Movies</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="genres">Genres</a>
@@ -96,20 +96,22 @@
                         </div>
                     </div>
                 </div>
+               
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <div class="banner-bottom">
+                             {{#each result}}
                             <div class="row">
                                 <div class="col-xl-4 col-lg-4 col-md-6 d-xl-block d-lg-block d-md-none">
                                     <div class="part-img">
-                                        <img src="/img/banner-bottom-img.jpg" alt="">
+                                        <img src="{{this.photo}}" alt="">
                                         <p>Best Movies</p>
                                     </div>
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-6 d-xl-flex d-lg-flex d-md-block align-items-center">
                                     <div class="promo-video">
                                         <div class="part-icon">
-                                            <a class="play-button venobox mfp-iframe" href="./videos/Majera_Nimruz_Trace_Blood_720.mp4"><i class="fas fa-play"></i></a>
+                                            <a class="play-button venobox mfp-iframe" href="{{this.YouTube_link}}"><i class="fas fa-play"></i></a>
                                         </div>
                                         <div class="part-text">
                                             <h3>Best Movie in Yutube</h3>
@@ -124,9 +126,11 @@
                                     </div>
                                 </div>
                             </div>
+                               {{/each}}
                         </div>
                     </div>
                 </div>
+             
             </div>
         </div>
         <!-- banner end -->
