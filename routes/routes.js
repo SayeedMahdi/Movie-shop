@@ -3,6 +3,7 @@ const express = require('express')
 const routes=express.Router();
 const pool = require("../database");
 
+//home router for best movie
 routes.get("/home",(req,res)=>{
     pool.query("SELECT * FROM movies WHERE DailyRate > 2 ", (error, result) => {
         if (error) return console.log(error.message);
@@ -13,6 +14,7 @@ routes.get("/home",(req,res)=>{
     });
     
 });
+//all movies
 routes.get("/movie",(req,res)=>{
    
     pool.query("SELECT * FROM movies  ", (error, result) => {
@@ -20,13 +22,12 @@ routes.get("/movie",(req,res)=>{
         res.render("movies", {result});
 
     });
-  
-   
 });
+
+//search bar option
 routes.post("/movie", async (req, res) => {
     const { search } = req.body;
-   
-    
+
     pool.query("SELECT * FROM movies WHERE Title like ?", ['%'+search+'%'], (error, result) => {
         if (error) return console.log(error.message);
         res.render("movies", {result});
@@ -34,12 +35,11 @@ routes.post("/movie", async (req, res) => {
         });
 });
 
-
-
+//genres
 routes.get("/genres",(req,res)=>{
     res.render("Genres")
 });
-
+//adding a new customer
 routes.post("/customers", async (req, res) => {
     const { name,phone, isGold, photo } = req.body;
    
@@ -64,12 +64,33 @@ routes.post("/customers", async (req, res) => {
             }
         });
     });
+    
+});
+//sarch one customer
+routes.post("/onecustomer", async (req, res) => {
+    const { search } = req.body;
+
+    pool.query("SELECT * FROM customers WHERE name like ?", ['%'+search+'%'], (error, row) => {
+        if (error) return console.log(error.message);
+        res.render("Customer", {row});
+       
+        });
 });
 
-
+//Customers all photo
 routes.get("/customers",(req,res)=>{
-    res.render("Customer")
+   
+    pool.query("SELECT * FROM customers  ", (error, row) => {
+        if (error) return console.log(error.message);
+        console.log(row);
+        res.render("Customer", {row});
+
+    });
+  
+   
 });
- 
+routes.get("/edite",(req,res)=>{
+    res.render("edite");
+})
 
 module.exports=routes
