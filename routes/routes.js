@@ -36,7 +36,7 @@ routes.get("/genres", (req, res) => {
 
 //Customers all all
 routes.get("/customers", (req, res) => {
-    pool.query("SELECT custoemrs.name, customers.phone,custoemrs.photo,customers.isGold,movies.name FROM watch INNER JOIN customers WHERE customer_id=customers.id AND  watch INNER JOIN movies WHERE movie_id =movies.id  ", (error, row) => {
+    pool.query("SELECT custoemrs.name, customers.phone,custoemrs.photo,customers.isGold,movies.name FROM ((see INNER JOIN customers ON customer_id=customers.id)  INNER JOIN movies ON movie_id =movies.id  )", (error, row) => {
         if (error) return console.log(error.message);
         res.render("Customer", { row });
     });
@@ -130,11 +130,15 @@ routes.get("/form/:id", (req, res) => {
 routes.post("/watch/:id", (req, res) => {
     pool.query("SELECT id FROM movies WHERE id=? ", [req.params.id], (error, row) => {
         if (error) return console.log(error.message);
-        console.log(row);
+        
         pool.query("SELECT id FROM customers WHERE phone=? ", [req.body.phone], (error, result) => {
             const message = "your are not registered in database please sign up";
             if (result.length == 0) return res.render("form", { row, message });
-            pool.query("INSERT INTO watch  SET ?", { customer_id: result, movie_id: row }, function (error, resolve) {
+            const read1=row[0].id;
+            const read2=result[0].id;
+            const date= Date();
+            let nowDate=date.toString();
+            pool.query("INSERT INTO see  SET ?", { customer_id:read2, movie_id:read1,date:date }, function (error, resolve) {
                 if (resolve) {
                     res.render("index");
                 } else return console.log(error.message);
