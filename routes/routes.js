@@ -17,7 +17,7 @@ routes.get("/home",(req,res)=>{
 //all movies
 routes.get("/movie",(req,res)=>{
    
-    pool.query("SELECT * FROM movies  ", (error, result) => {
+    pool.query("SELECT movies.Title,movies.id,movies.Price,movies.DailyRate,movies.NumberInStock,movies.photo,movies.message,movies.YouTube_link, genres.name AS genre_name FROM movies INNER JOIN genres ON movies.genre_id = genres.id;  ", (error, result) => {
         if (error) return console.log(error.message);
         res.render("movies", {result});
 
@@ -43,7 +43,7 @@ routes.get("/genres",(req,res)=>{
 routes.post("/customers", async (req, res) => {
     const { name,phone, isGold, photo } = req.body;
    
-    pool.query("SELECT * FROM customers WHERE phone= ?", [phone], (error, result) => {
+    pool.query("SELECT * FROM customers WHERE phone=?", [phone], (error, result) => {
         if (error) return console.log(error.message);
 
         else if (result.length > 0) {
@@ -54,9 +54,13 @@ routes.post("/customers", async (req, res) => {
         pool.query("INSERT INTO customers SET ?", { name: name, phone: phone, isGold: isGold, photo: photo }, (error, result) => {
 
             if (result) {
-                return res.render("Customer", {
-                    message: "the customer added in detabase"
+                pool.query("SELECT * FROM customers  ", (error, row) => {
+                    if (error) return console.log(error.message);
+                    message="addete to database successfully.";
+                    res.render("Customer", {row,message});
+            
                 });
+         
             } else if (error) {
                 return res.render("Customer", {
                     message: error.message
@@ -82,15 +86,87 @@ routes.get("/customers",(req,res)=>{
    
     pool.query("SELECT * FROM customers  ", (error, row) => {
         if (error) return console.log(error.message);
-        console.log(row);
+        
         res.render("Customer", {row});
 
     });
   
    
 });
-routes.get("/edite",(req,res)=>{
-    res.render("edite");
-})
+//render the form edite
+routes.get("/edite/:id",(req,res)=>{
+  
+    pool.query("SELECT * FROM customers WHERE id=? ",[req.params.id], (error, row) => {
+        if (error) return console.log(error.message);
+    
+        res.render("edite",{row});
+        
 
+    });
+   
+    
+});
+//ubdate a customer
+routes.post("/edite/:id",(req,res)=>{
+    const { name,phone, isGold, photo } = req.body;
+    pool.query("UPDATE customers SET name=? ,phone=? ,isGold=? ,photo=? WHERE id=? ",[name,phone,isGold,photo,req.params.id], (error, row) => {
+        if (error) return console.log(error.message);
+        
+        const alert="success fully edited.";
+        pool.query("SELECT * FROM customers  ", (error, row) => {
+            if (error) return console.log(error.message);
+            allert2="Deleted successfully.";
+            res.render("Customer", {row,alert});
+    
+        });
+        
+
+    });
+   
+    
+})
+//delete a customer
+routes.get("/customer/:id",(req,res)=>{
+     pool.query("DELETE FROM customers WHERE id =?",[req.params.id],(error, result)=>{
+        if (error) return console.log(error.message);
+        pool.query("SELECT * FROM customers  ", (error, row) => {
+            if (error) return console.log(error.message);
+            allert2="Deleted successfully.";
+            res.render("Customer", {row,allert2});
+    
+        });
+     });
+});
+routes.get("/form/:id",(req,res)=>{
+    pool.query("SELECT id FROM movies WHERE id=? ",[req.params.id], (error, row) => {
+        if (error) return console.log(error.message);
+    
+        res.render("form",{row});
+        
+
+    });
+});
+//buy ticket
+routes.post("/watch/:id",(req,res)=>{
+    pool.query("SELECT id FROM movies WHERE id=? ",[req.params.id], (error, row) => {
+        if (error) return console.log(error.message);
+        console.log(row);
+        pool.query("SELECT id FROM customers WHERE phone=? ",[req.body.phone], (error, result) => {
+            const message=""
+            if (error) return  res.render("form",{row});
+            console.log(result);
+            pool.query("INSERT INTO watch  SET ?",{customer_id:result,movie_id:row}  , function (error, resolve)  {
+                console.log(resolve);
+
+                if (resolve) {
+                     res.render("index");
+                }else return console.log(error.message);
+            });
+            
+    
+        });
+        
+
+    });
+});
 module.exports=routes

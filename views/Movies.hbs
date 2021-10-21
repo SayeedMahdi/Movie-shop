@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="breadcrump-content">
-                        <span class="page-name">Home</span>
+                        <span class="page-name"><a href="home" style="color: white;">Home</a> </span>
                         <span class="icon"><i class="fas fa-chevron-right"></i></span>
                         <span class="page-name">Movie</span>
                     </div>
@@ -110,6 +110,13 @@
     <!-- breadcrump end -->
 
     <!-- single Movies begin -->
+    {{#if message}}
+    <div>
+        <h4 class="alert alert-danger">
+            {{message}}
+        </h4>
+    </div>
+    {{/if}}
     <br>
     {{#each result}}
 
@@ -140,7 +147,7 @@
         </div>
     </div>
     <br><br>
-     {{/each}}
+    {{/each}}
 
 
     <!-- single event end -->
@@ -157,39 +164,43 @@
                     </div>
                 </div>
             </div>
-         
+
             <div class="row">
-                  {{#each result}}
+                {{#each result}}
                 <div class="col-xl-3 col-lg-3 col-sm-6 ">
-                    
+
                     <div class="single-ticket-price">
                         <div class="part-feature">
                             <span class="price">{{this.Price}}</span>
                             <h3>Basic Pass</h3>
                             <ul>
-                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Title:{{this.Title}}
-                                    </span></li>
-                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Daily Rate:{{this.DailyRate}}
-                                        </span></li>
-                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Number in Stuck:{{this.NumberInStock}}
-                                        </span></li>
-                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">ID:{{this.id}}
-                                        </span></li>
                                 <li><span class="icon"><i class="fas fa-check"></i></span><span
-                                        class="text">Type of Genre:</span></li>
+                                        class="text">Title:{{this.Title}}
+                                    </span></li>
+                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Daily
+                                        Rate:{{this.DailyRate}}
+                                    </span></li>
+                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Number in
+                                        Stuck:{{this.NumberInStock}}
+                                    </span></li>
+                                <li><span class="icon"><i class="fas fa-check"></i></span><span
+                                        class="text">ID:{{this.id}}
+                                    </span></li>
+                                <li><span class="icon"><i class="fas fa-check"></i></span><span class="text">Type of
+                                        Genre:{{genre_name}}</span></li>
                             </ul>
                         </div>
                         <div class="part-button">
-                            <a href="#">Buy Ticket</a>
+                            <a href="form/{{this.id}}">Buy Ticket</a>
                         </div>
                     </div>
-                    
+
                 </div>
-                 {{/each}}
-                </div>
+                {{/each}}
             </div>
-           
         </div>
+
+    </div>
     </div>
 
     <!-- ticket price end -->
@@ -318,15 +329,14 @@
                             <ul class="navbar-nav">
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Movies.hbs">Movie</a>
+                                    <a class="nav-link" href="movie">Movie</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Genres.hbs">Genres</a>
+                                    <a class="nav-link" href="genres">Genres</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Customer.hbs">Customers</a>
+                                    <a class="nav-link" href="customers">Customers</a>
                                 </li>
-
                             </ul>
                         </nav>
                     </div>

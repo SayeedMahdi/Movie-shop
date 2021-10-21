@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="breadcrump-content">
-                        <span class="page-name">Home</span>
+                        <span class="page-name"><a href="home" style="color: white;">Home</a></span>
                         <span class="icon"><i class="fas fa-chevron-right"></i></span>
                         <span class="page-name">Custmers</span>
                     </div>
@@ -107,6 +107,13 @@
             </div>
         </div>
     </div>
+    {{#if alert}}
+    <div>
+        <h4 class="alert alert-danger">
+            {{alert}}
+        </h4>
+    </div>
+    {{/if}}
     <!-- breadcrump end -->
     <div class="contact">
         <div class="container">
@@ -162,7 +169,13 @@
             </div>
         </div>
     </div>
-
+    {{#if alert2}}
+    <div>
+        <h4 class="alert alert-danger">
+            {{alert2}}
+        </h4>
+    </div>
+    {{/if}}
     <!--all customer edite-->
     <div class="container
      justify-content-center" style="background-color: rgb(196, 192, 192); color: rgb(14, 7, 7);">
@@ -174,6 +187,7 @@
                     <th scope="col">Name: </th>
                     <th scope="col">Phone: </th>
                     <th scope="col">isGold: </th>
+                    <th scope="col">Watched Movie: </th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -183,15 +197,19 @@
                     <th scope="row"> {{this.id}}</th>
                     <td>{{this.name}}</td>
                     <td>{{this.phone}}</td>
+                    <td>{{this.movie_name}}</td>
                     <td>1</td>
                     <td>
-                    <a href="#" type="button" class="btn btn-lightgrey btn-small"> <i class=" fas fa-eye"> View</i></a>
-                    <a href="#" type="button" class="btn btn-lightgrey btn-small"> <i class=" fas fa-user-edit"> Edite</i></a>
-                    <a href="#" type="button" class="btn btn-lightgrey btn-small"> <i class=" fas fa-trash"> Delete</i></a>
+                        <a href="#" type="button" class="btn btn-lightgrey btn-small"> <i class=" fas fa-eye">
+                                View</i></a>
+                        <a href="/api/edite/{{this.id}}" type="button" class="btn btn-lightgrey btn-small"> <i
+                                class=" fas fa-user-edit"> Edite</i></a>
+                        <a href="/api/customer/{{this.id}}" type="button" class="btn btn-lightgrey btn-small"> <i
+                                class=" fas fa-trash"> Delete</i></a>
 
                     </td>
                 </tr>
-               {{/each}}
+                {{/each}}
             </tbody>
         </table>
     </div>

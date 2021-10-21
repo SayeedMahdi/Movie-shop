@@ -98,41 +98,30 @@
             <div class="row justify-content-center">
                 <div class="col-xl-10 col-lg-10">
                     <div class="add-space section-title text-center">
-                        <h2>Edite The Customer</h2>
+                        <h2>Buy ticket</h2>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-8">
-                    {{#each row}}
+                   
                     <div class="contact-form">
-                        <form action="/api/edite/{{this.id}}" method="POST">
+                        {{#each row}}
+                        <form action="/api/watch/{{this.id}}" method="POST">
+                        {{/each}}
                             <div class="row ">
 
                                 <div class="col-xl-6 col-lg-6 form-group">
-                                    <input type="text" placeholder="Name" value="{{this.name}}" name="name"
+                                    <input type="text" placeholder="Name" value="" name="name"
                                         class="form-control ">
                                     <span></span>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 form-group">
-                                    <input type="text" placeholder="phone" value={{this.phone}} name="phone"
+                                    <input type="text" placeholder="phone" value="" name="phone"
                                         class="form-control ">
                                     <span></span>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 form-group">
-                                    <label for="cars" style="padding-top: 8px;">Is Gold</label>
-                                    <select id="cars" name="isGold"
-                                        style="background-color: blueviolet; margine-left: 3px;">
-                                        <option value="true" style="background-color: blueviolet;">True</option>
-                                        <option value="false" style="background-color: blueviolet;">False</option>
-                                    </select>
-                                    <span></span>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 form-group">
-                                    <input type="text" value="{{this.photo}}" placeholder="Customer picture"
-                                        name="photo" class="form-control ">
-                                    <span></span>
-                                </div>
+                                
 
                                 <div class="col-xl-6 col-lg-6 form-group">
                                     {{#if message}}
@@ -142,12 +131,13 @@
                                         </h4>
                                     </div>
                                     {{/if}}
-                                    <button type="submit"> Edite </button>
+                                    <button type="submit" > Buy it </button> <br> 
+                                    <a href="Customers" style="color: white; padding-top: 20;">Sign Up</a>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    {{/each}}
+                 
                 </div>
             </div>
         </div>
