@@ -36,7 +36,7 @@ routes.get("/genres", (req, res) => {
 
 //Customers all all
 routes.get("/customers", (req, res) => {
-    pool.query("SELECT custoemrs.name, customers.phone,custoemrs.photo,customers.isGold,movies.name FROM ((see INNER JOIN customers ON customer_id=customers.id)  INNER JOIN movies ON movie_id =movies.id  )", (error, row) => {
+    pool.query("SELECT customers.name, customers.phone,customers.photo,customers.isGold,movies.name as movie_name FROM ((see INNER JOIN customers ON customer_id=customers.id)  INNER JOIN movies ON movie_id =movies.id  )", (error, row) => {
         if (error) return console.log(error.message);
         res.render("Customer", { row });
     });
