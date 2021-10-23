@@ -5,7 +5,7 @@ const pool = require("../database");
 
 //home router for best movie
 routes.get("/home", (req, res) => {
-    pool.query("SELECT * FROM movies WHERE DailyRate > 2 ", (error, result) => {
+    pool.query("SELECT * FROM movies WHERE DailyRate > 3 ", (error, result) => {
         if (error) return console.log(error.message);
         console.log(result);
         res.render("index", { result });
@@ -36,12 +36,17 @@ routes.get("/genres", (req, res) => {
 
 //Customers all all
 routes.get("/customers", (req, res) => {
-    pool.query("SELECT customers.name, customers.phone,customers.photo,customers.isGold,movies.name as movie_name FROM ((see INNER JOIN customers ON customer_id=customers.id)  INNER JOIN movies ON movie_id =movies.id  )", (error, row) => {
+    pool.query("SELECT customers.name, customers.phone,customers.photo,customers.isGold,movies.title as movie_name FROM ((see INNER JOIN customers ON customer_id=customers.id)  INNER JOIN movies ON movie_id =movies.id  )", (error, row) => {
         if (error) return console.log(error.message);
         res.render("Customer", { row });
     });
 });
-
+// routes.get("/customers", (req, res) => {
+//     pool.query("SELECT * FROM customers ", (error, row) => {
+//         if (error) return console.log(error.message);
+//         res.render("Customer", { row });
+//     });
+// });
 
 //adding a new customer
 routes.post("/customers", async (req, res) => {
