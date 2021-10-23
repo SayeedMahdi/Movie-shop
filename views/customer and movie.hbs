@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customers and movies</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- fontawesome icon  -->
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/fonts/flaticon.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- responsive -->
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <div class="container
+     justify-content-center" style="background-color: rgb(196, 192, 192); color: rgb(14, 7, 7);">
+        <table class="table">
+            <h3>Customer Table</h3>
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Name: </th>
+                    <th scope="col">Phone: </th>
+                    <th scope="col">isGold: </th>
+                    <th scope="col">Watched Movie: </th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each row}}
+                <tr>
+                    <th scope="row"> {{this.id}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.phone}}</td>
+                    <td>{{this.isGold}}</td>
+                    <td>{{this.movie_name}}</td>
+                    <td>1</td>
+                    <td>
+                        <a href="#" type="button" class="btn btn-lightgrey btn-small"> <i class=" fas fa-eye">
+                                View</i></a>
+                        <a href="/api/edite/{{this.id}}" type="button" class="btn btn-lightgrey btn-small"> <i
+                                class=" fas fa-user-edit"> Edite</i></a>
+                        <a href="/api/customer/{{this.id}}" type="button" class="btn btn-lightgrey btn-small"> <i
+                                class=" fas fa-trash"> Delete</i></a>
+
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

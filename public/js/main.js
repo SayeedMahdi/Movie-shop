@@ -10,7 +10,7 @@
         //======================================
         var nodes = $('.timer');
         $.each(nodes, function (index, value) {
-            var date = $(this).data('date');
+            var date = $(this).data("date");
 
             setInterval(() => {
 

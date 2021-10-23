@@ -63,7 +63,7 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="home">Home<span class="sr-only">(current)</span></a>
+                                            <a class="nav-link active" >Home<span class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="movie">Movies</a>
@@ -104,18 +104,19 @@
                             <div class="row">
                                 <div class="col-xl-4 col-lg-4 col-md-6 d-xl-block d-lg-block d-md-none">
                                     <div class="part-img">
-                                        <img src="{{this.photo}}" alt="about movie">
+                                        <img src="{{this.photo}}" alt="about movie" height="200">
                                         <p>Best Movies</p>
                                     </div>
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-6 d-xl-flex d-lg-flex d-md-block align-items-center">
                                     <div class="promo-video">
                                         <div class="part-icon">
-                                            <a class="play-button venobox mfp-iframe" href="{{this.YouTube_link}}"><i class="fas fa-play"></i></a>
+                                            
+                                            <a class="play-button venobox mfp-iframe" href="Movies"><i class="fas fa-play"></i></a>
                                         </div>
                                         <div class="part-text">
                                             <h3>Best Movie in Yutube</h3>
-                                            <span class="intro">Watch The Movie Now</span>
+                                            <span class="intro">Watch The {{this.Title}} Now</span>
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +135,6 @@
             </div>
         </div>
         <!-- banner end -->
-
         <!-- countdown begin -->
         <div class="countdown">
             <div class="container">
@@ -180,7 +180,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-8">
                         <div class="contact-form">
-                            <form action="/movie/newmovie" method="POST">
+                            <form action="/api/home" method="POST">
                                 <div class="row " >
                                     <div class="col-xl-6 col-lg-6 form-group">
                                         <input type="text" placeholder="title" name="title" class="form-control " id="title">
