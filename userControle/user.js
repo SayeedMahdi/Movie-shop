@@ -1,3 +1,3 @@
 exports.logineForm=(req,res)=>{
-    res.render("loginform")
+    res.render("login")
 }
