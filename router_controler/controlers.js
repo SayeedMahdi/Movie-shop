@@ -1,8 +1,5 @@
 const url = require("valid-url");
-const express = require('express')
-const routes = express.Router();
 const pool = require("../database");
-const control = require("../router_controler/controlers");
 
 //home page
 exports.gethome = (req, res) => {

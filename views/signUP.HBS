@@ -1,0 +1,38 @@
+<html>
+
+<head>
+      <title>Login form</title>
+      <link rel="stylesheet" type="text/css" href="/css/login.css">
+      {{!--
+      <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
+         <link rel="stylesheet" href="/css/fontawesome.min.css">
+
+</head>
+
+<body>
+
+      <h1 id="ti">Welcome to Sayeed Mahdi Movie shop</h1>
+      <div class="loginBox">
+
+
+            <i class="fa fa-user" aria-hidden="true" style="font-size: 50px; margin-left: 90px;"></i>
+            <h1>Sign Up</h1>
+            {{#if message}}
+            <span style="color: red;">{{message}}</span>
+            {{/if}}
+            <form method="POST"  action="/api/signUp">
+                  <p>Username</p>
+                  <input type="text" name="name" required placeholder="&#xf4fc Enter Username " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+                  <p>Password</p>
+                  <input type="password" name="password" required placeholder="&#xf084 Enter password " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+                  <p class="em">Email</p>
+                  <input type="email" name="email" class="em" required placeholder="&#xf0e0 Enter Your email " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+                  
+                  <input type="submit" name="sub" value="Sign up">
+         
+
+
+            </form>
+      </div>   
+</body>
+</html>

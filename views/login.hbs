@@ -3,31 +3,44 @@
 <head>
       <title>Login form</title>
       <link rel="stylesheet" type="text/css" href="/css/login.css">
-      {{!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
+      {{!--
+      <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
+         <link rel="stylesheet" href="/css/fontawesome.min.css">
 
 </head>
 
 <body>
 
-      <h1 id="ti">Welcom to Tanin Hotel</h1>
+      <h1 id="ti">Welcome to Sayeed Mahdi Movie shop</h1>
       <div class="loginBox">
 
 
-            <i class="fa fa-user" aria-hidden="true" id="a"></i>
-            <h1>Login Here</h1>
-            <form>
+            <i class="fa fa-user" aria-hidden="true" style="font-size: 50px; margin-left: 90px;"></i>
+            <h1>Login</h1>
+            {{#if message}}
+            <span style="color: red;">{{message}}</span>
+            {{/if}}
+            <form method="POST" action="/api/auth">
                   <p>Username</p>
-                  <input type="text" name="" placeholder="Enter Username">
+                  <input type="email" name="email" required placeholder="&#xf0e0 Enter Email " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
                   <p>Password</p>
-                  <input type="password" name="" placeholder="Enter Password">
-                  <input type="submit" name="" value="Login">
+                  <input type="password" name="password" required placeholder="&#xf084 Enter password " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+                  
+                  <input type="submit"  value="Sign in">
+         
                   <a href="">Forgot your password?</a><br>
-                  <a href="">Don't have an account?</a>
+                  <a href="/api/signupform">I Dont have an acount?</a><br>
+
+
             </form>
 
 
 
       </div>
+      
 </body>
+
+
+
 
 </html>

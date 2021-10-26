@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: skyblue;
+    background: url("/img/formback.jpg");
     background-size:cover;
     background-position: center;
     font-family: sans-serif;
@@ -10,17 +10,19 @@ body{
 
 .loginBox{
     width: 320px;
-    height: 420px;
+    height: 480px;
 /*    background: #0d0;*/
-    background: transparent;
-    color: #fff;
+    background:transparent;
+    background-color:  #f6feffa1;
+    color: rgb(15, 15, 14);
     position: absolute;
     top: 50%;
     left: 50%;
     box-sizing: border-box;
     transform: translate(-50%,-50%);
-    padding: 70px 30px;
-    border: solid 1px #fff;
+    padding: 50px 50px;
+    border: solid 4px rgba(255, 255, 255, 0.589);
+    box-shadow: 4px 7px #3b3d3f6e;
 }
 
 #avatar{
@@ -43,24 +45,24 @@ h1{
 .loginBox p{
     margin: 0;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 8;
     font-weight: bold;
 }
 
 .loginBox input{
     width: 100%;
     margin-bottom: 20px;
-    
+
 }
 
 
-.loginBox input[type="text"], input[type="password"]{
+.loginBox input[type="text"], input[type="password"],input[type="email"]{
     
-    color: #fff;
+    color: rgb(37, 28, 28);
     font-size: 16px;
     border: none;
     outline: none;
-    border-bottom: solid 1px #fff;
+    border-bottom: solid 1px rgb(46, 37, 37);
     background: transparent;
     height: 40px;
 }
@@ -68,17 +70,18 @@ h1{
 .loginBox input[type="submit"]{
     border: none;
     outline: none;
-    height: 40px;
-    background: #009933;
-    color: #fff;
+    height: 30px;
+    background: #147ada86;
+    color: rgb(19, 17, 17);
     font-size:18px;
     border-radius: 20px;
     margin-bottom: 15;
+    text-align: center;
 }
 
 
 .loginBox a{
-    color: #fff;
+    color: rgb(39, 35, 35);
     text-decoration: none;
     font-size: 14;
     line-height: 20px;
@@ -87,17 +90,19 @@ h1{
 
 .loginBox input[type="submit"]:hover{
     cursor: pointer;
-    background: #0d0;
+    background: rgba(0, 131, 238, 0.87);
 }
 
+
 .loginBox a:hover{
-    color:#0d0;
+    color:rgba(0, 15, 221, 0.582);
 }
 
 h1#ti{
     text-align: center;
-    color:#fff;
-    font-size: 50px;
+    color:rgb(31, 78, 117);
+    font-size: 30px;
     margin-top: 40px;
     font-family: helvetica;
 }
+

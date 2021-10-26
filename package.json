@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -18,12 +18,15 @@
   },
   "homepage": "https://github.com/SayeedMahdi/Movie-shop#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "hbs": "^4.1.2",
     "helmet": "^4.6.0",
+    "joi": "^17.4.2",
+    "joy": "^0.1.1",
     "jsoon": "^0.1.0",
     "mysql": "^2.18.1",
     "pkg": "^5.3.3",

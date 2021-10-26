@@ -48,9 +48,16 @@ routes.post("/watch/:id", control.teckite);
 
 //Genre selection sort all movies by theire genre 
 routes.get("/genre/:id", control.sortbygenre);
+//register form
 
 //sear movies
 routes.post("/movies/search", control.searchMovie);
-
-routes.get("/login",userControler.logineForm)
+//login form api
+routes.get("/loginform",userControler.logineForm);
+//authorization 
+routes.post("/auth",userControler.signin);
+//sign up form
+routes.get("/signupform",userControler.signupform);
+//post the new user
+routes.post("/signUp",userControler.cheaksignup)
 module.exports = routes;
