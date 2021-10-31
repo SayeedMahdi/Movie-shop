@@ -3,9 +3,12 @@
 <head>
       <title>Login form</title>
       <link rel="stylesheet" type="text/css" href="/css/login.css">
+
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
       {{!--
       <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
-         <link rel="stylesheet" href="/css/fontawesome.min.css">
+      <link rel="stylesheet" href="/css/fontawesome.min.css">
 
 </head>
 
@@ -15,24 +18,33 @@
       <div class="loginBox">
 
 
-            <i class="fa fa-user" aria-hidden="true" style="font-size: 50px; margin-left: 90px;"></i>
+            <i class="fa fa-user" placeholder="user" aria-hidden="true" style="font-size: 50px; margin-left: 90px;"></i>
             <h1>Sign Up</h1>
             {{#if message}}
             <span style="color: red;">{{message}}</span>
             {{/if}}
-            <form method="POST"  action="/api/signUp">
+            <form method="POST" action="/api/signUp">
                   <p>Username</p>
-                  <input type="text" name="name" required placeholder="&#xf4fc Enter Username " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+                  <input type="text" name="name" required placeholder="&#xf4fc Enter Username "
+                        style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
                   <p>Password</p>
-                  <input type="password" name="password" required placeholder="&#xf084 Enter password " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+                  <input type="password" name="password" required placeholder="&#xf084 Enter password "
+                        style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
                   <p class="em">Email</p>
-                  <input type="email" name="email" class="em" required placeholder="&#xf0e0 Enter Your email " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
-                  
+                  <input type="email" name="email" class="em" required placeholder="&#xf0e0 Enter Your email "
+                        style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+                  <label for="roleplay">Privelage: </label>
+                  <select name="roleplay" id="">
+                        <option value="1">Admin</option>
+                        <option value="2">User</option>
+                  </select>
+                  <br><br>
                   <input type="submit" name="sub" value="Sign up">
-         
+
 
 
             </form>
-      </div>   
+      </div>
 </body>
+
 </html>

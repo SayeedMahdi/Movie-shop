@@ -63,6 +63,15 @@ exports.movieandcustomer = (req, res) => {
 }
 //all customers
 exports.allcustomer = (req, res) => {
+     const limit=req.query.limit;
+    const page=req.query.page;
+    const start_index=(page-1)*limit;
+    const ende_index=page*limit;
+    pool.query("SELECT COUNT(id) FROM customers ", (error, pages) => {
+        if (error) return console.log(error.message);
+        res.render("Customer", { pages });
+    });
+
     pool.query("SELECT * FROM customers ", (error, row) => {
         if (error) return console.log(error.message);
         res.render("Customer", { row });

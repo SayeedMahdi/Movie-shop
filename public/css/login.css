@@ -16,7 +16,7 @@ body{
     background-color:  #f6feffa1;
     color: rgb(15, 15, 14);
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     box-sizing: border-box;
     transform: translate(-50%,-50%);

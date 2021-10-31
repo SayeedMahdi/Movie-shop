@@ -2,6 +2,8 @@
 
 <head>
       <title>Login form</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
       <link rel="stylesheet" type="text/css" href="/css/login.css">
       {{!--
       <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
@@ -25,7 +27,12 @@
                   <input type="email" name="email" required placeholder="&#xf0e0 Enter Email " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
                   <p>Password</p>
                   <input type="password" name="password" required placeholder="&#xf084 Enter password " style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
-                  
+                  <label for="roleplay">Privelage: </label>
+                  <select name="roleplay" id="">
+                        <option value="1">Admin</option>
+                        <option value="2">User</option> 
+                  </select>
+                        <br><br> <br>
                   <input type="submit"  value="Sign in">
          
                   <a href="">Forgot your password?</a><br>
