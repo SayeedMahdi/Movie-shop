@@ -5,7 +5,7 @@ const pool = require("../database");
 exports.gethome = (req, res) => {
     pool.query("SELECT * FROM movies WHERE DailyRate > 8 ", (error, result) => {
         if (error) return console.log(error.message);
-        console.log(result);
+       
         res.render("index", { result });
     });
 };
@@ -25,7 +25,7 @@ exports.postMovie = async (req, res) => {
         };
         pool.query("INSERT INTO movies SET ?", { Title: title, genre_id: genre_id, Price: price, DailyRate: dailyRate, NumberInStock: numberInStock, photo: photo, message: message, YouTube_link: video }, (error, result) => {
             if (result) {
-                res.redirect("home/?message" + "the movied added to database")
+                res.render("/api/home" ,{message:"the movied added to database"})
             } else if (error) {
                 return res.render("index", {
                     message: error.message

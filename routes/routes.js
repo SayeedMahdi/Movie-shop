@@ -1,17 +1,18 @@
-const url = require("valid-url");
+
 const express = require('express')
 const routes = express.Router();
-const pool = require("../database");
 const control = require("../router_controler/controlers");
 const userControler=require("../userControle/user")
+const auth=require("../middleware/auth");
+
 
 //post a  new movie
-routes.post("/home", control.postMovie);
+routes.post("/home",auth.auth , control.postMovie);
 
 //home router for best movie
 routes.get("/home", control.gethome);
 //all movies
-routes.get("/movie", control.allmovies);
+routes.get("/movie", auth.auth,control.allmovies);
 
 //search bar option
 routes.post("/movie", control.search);
@@ -23,7 +24,7 @@ routes.get("/genres", control.getgenre);
 routes.get("/getcs&mv", control.movieandcustomer);
 
 //all customers
-routes.get("/customers", control.allcustomer);
+routes.get("/customers",auth.admine,control.allcustomer);
 
 //adding a new customer
 routes.post("/customers", control.addcustomers);
@@ -44,7 +45,7 @@ routes.get("/customer/:id", control.deleteCustomers);
 routes.get("/form/:id", control.form);
 
 //ticket buyer 
-routes.post("/watch/:id", control.teckite);
+routes.post("/watch/:id",auth.auth, control.teckite);
 
 //Genre selection sort all movies by theire genre 
 routes.get("/genre/:id", control.sortbygenre);
@@ -59,5 +60,5 @@ routes.post("/auth",userControler.signin);
 //sign up form
 routes.get("/signupform",userControler.signupform);
 //post the new user
-routes.post("/signUp",userControler.cheaksignup)
+routes.post("/signUp",auth.admine,userControler.cheaksignup)
 module.exports = routes;

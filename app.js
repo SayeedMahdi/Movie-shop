@@ -2,13 +2,21 @@ const express =require("express");
 const app=express();
 const pool=require("./database");
 const path=require("path");
+const cookieParser = require('cookie-parser');
+const pages=require("./routes/routes");
+
+var session = require('express-session');
+
+const dotenv=require("dotenv");
+dotenv.config({path: "./databaseconection.env"});
 
 
 app.use(express.static(path.join(__dirname, './public')));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
+app.use(cookieParser());
 
-const pages=require("./routes/routes");
+
 
 pool.getConnection((error,connection)=>{
     if(error ) console.log("this is not connected", error.message);
